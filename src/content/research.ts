@@ -50,7 +50,7 @@ export type LabSlot = {
   label: string;
   description: string;
   eta: string;
-  status: "planned" | "in-progress";
+  status: "planned" | "in-progress" | "live";
 };
 
 export const labSlots: LabSlot[] = [
@@ -59,8 +59,8 @@ export const labSlots: LabSlot[] = [
     label: "Portfolio AI Assistant",
     description:
       "RAG assistant over project documentation and research notes, answering questions about my work with citations.",
-    eta: "Q3 2026",
-    status: "in-progress",
+    eta: "Live now",
+    status: "live",
   },
   {
     id: "semantic-search",

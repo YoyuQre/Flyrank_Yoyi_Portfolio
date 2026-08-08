@@ -4,6 +4,8 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { AssistantBubble } from "@/features/assistant-bubble";
+import { ClarityAnalytics } from "@/components/clarity-analytics";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -91,6 +93,8 @@ export default function RootLayout({
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <AssistantBubble />
+        <ClarityAnalytics />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { Hammer } from "lucide-react";
 import { labSlots } from "@/content/research";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { AssistantChat } from "@/features/assistant-chat";
 
 export function LabTabs() {
   const [activeId, setActiveId] = React.useState(labSlots[0].id);
@@ -34,7 +35,9 @@ export function LabTabs() {
               )}
             >
               <span>{slot.label}</span>
-              {slot.status === "in-progress" ? (
+              {slot.status === "live" ? (
+                <span className="size-1.5 shrink-0 rounded-full bg-status glow-dot" />
+              ) : slot.status === "in-progress" ? (
                 <span className="size-1.5 shrink-0 rounded-full bg-accent-3" />
               ) : null}
             </button>
@@ -44,13 +47,25 @@ export function LabTabs() {
 
       <div
         role="tabpanel"
-        className="flex flex-col justify-between gap-8 rounded-lg border border-line bg-card/70 p-6 shadow-soft backdrop-blur-xl md:p-8"
+        className="flex flex-col gap-8 rounded-lg border border-line bg-card/70 p-6 shadow-soft backdrop-blur-xl md:p-8"
       >
         <div>
           <div className="flex flex-wrap items-center gap-3">
             <h3 className="font-display text-xl font-semibold">{active.label}</h3>
-            <Badge tone={active.status === "in-progress" ? "accent" : "neutral"}>
-              {active.status === "in-progress" ? "In development" : "Slotted"}
+            <Badge
+              tone={
+                active.status === "live"
+                  ? "success"
+                  : active.status === "in-progress"
+                    ? "accent"
+                    : "neutral"
+              }
+            >
+              {active.status === "live"
+                ? "Live"
+                : active.status === "in-progress"
+                  ? "In development"
+                  : "Slotted"}
             </Badge>
             <Badge tone="neutral">{active.eta}</Badge>
           </div>
@@ -59,19 +74,23 @@ export function LabTabs() {
           </p>
         </div>
 
-        <div className="rounded-lg border border-dashed border-line-strong bg-surface/40 p-6">
-          <div className="flex items-center gap-2 text-xs text-muted">
-            <Hammer className="size-3.5" />
-            <span className="font-mono">
-              module://{active.id} — build scheduled
-            </span>
+        {active.id === "assistant" ? (
+          <AssistantChat className="h-[440px]" />
+        ) : (
+          <div className="rounded-lg border border-dashed border-line-strong bg-surface/40 p-6">
+            <div className="flex items-center gap-2 text-xs text-muted">
+              <Hammer className="size-3.5" />
+              <span className="font-mono">
+                module://{active.id} — build scheduled
+              </span>
+            </div>
+            <div className="mt-4 flex flex-col gap-2">
+              <div className="h-2.5 w-3/4 rounded-full bg-line/60" />
+              <div className="h-2.5 w-1/2 rounded-full bg-line/60" />
+              <div className="h-2.5 w-2/3 rounded-full bg-line/40" />
+            </div>
           </div>
-          <div className="mt-4 flex flex-col gap-2">
-            <div className="h-2.5 w-3/4 rounded-full bg-line/60" />
-            <div className="h-2.5 w-1/2 rounded-full bg-line/60" />
-            <div className="h-2.5 w-2/3 rounded-full bg-line/40" />
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
