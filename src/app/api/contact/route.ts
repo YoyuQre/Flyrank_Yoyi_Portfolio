@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getSupabase } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
@@ -18,13 +19,29 @@ export async function POST(request: Request) {
       );
     }
 
-    // Wire into a Supabase `contact_submissions` table when credentials are
-    // provisioned. Until then this confirms receipt without losing the message.
-    console.info("[contact] submission received", {
-      name,
-      email,
-      at: new Date().toISOString(),
-    });
+    const supabase = getSupabase();
+
+    if (supabase) {
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert({ name, email, message });
+
+      if (error) {
+        console.error("[contact] supabase insert failed", error);
+        return NextResponse.json(
+          { ok: false, error: "Failed to store message." },
+          { status: 500 },
+        );
+      }
+    } else {
+      // No SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY configured yet — confirm
+      // receipt without losing the message.
+      console.info("[contact] submission received (not persisted)", {
+        name,
+        email,
+        at: new Date().toISOString(),
+      });
+    }
 
     return NextResponse.json({ ok: true });
   } catch {

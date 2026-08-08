@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^9.7.0",
+    "@supabase/supabase-js": "^2.112.2",
     "@types/three": "^0.185.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -23,6 +24,7 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.13",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
