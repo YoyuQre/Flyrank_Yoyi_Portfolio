@@ -6,22 +6,30 @@ import { cn } from "@/lib/utils";
 
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
 function validate(
   name: string,
   email: string,
   message: string,
 ): FieldErrors {
   const errors: FieldErrors = {};
-  if (!name.trim()) errors.name = "Name is required.";
+  if (!name.trim()) {
+    errors.name = "Name is required.";
+  } else if (name.trim().length > 100) {
+    errors.name = "Name must be 100 characters or fewer.";
+  }
   if (!email.trim()) {
     errors.email = "Email is required.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  } else if (!EMAIL_REGEX.test(email)) {
     errors.email = "Enter a valid email address.";
   }
   if (!message.trim()) {
     errors.message = "Message is required.";
   } else if (message.trim().length < 20) {
     errors.message = "Tell me a little more — at least 20 characters.";
+  } else if (message.trim().length > 5000) {
+    errors.message = "Message must be 5000 characters or fewer.";
   }
   return errors;
 }
@@ -122,6 +130,7 @@ export function ContactForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             aria-invalid={Boolean(errors.name)}
+            maxLength={100}
             className={cn(
               "h-11 w-full rounded-md border border-line bg-solid/60 px-4 text-sm text-foreground outline-none transition-colors duration-300 placeholder:text-muted/60 focus:border-accent/40",
               errors.name && "border-red-500/50",
@@ -143,6 +152,7 @@ export function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={Boolean(errors.email)}
+            maxLength={254}
             className={cn(
               "h-11 w-full rounded-md border border-line bg-solid/60 px-4 text-sm text-foreground outline-none transition-colors duration-300 placeholder:text-muted/60 focus:border-accent/40",
               errors.email && "border-red-500/50",
@@ -166,6 +176,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           aria-invalid={Boolean(errors.message)}
+          maxLength={5000}
           className={cn(
             "w-full resize-none rounded-md border border-line bg-solid/60 px-4 py-3 text-sm text-foreground outline-none transition-colors duration-300 placeholder:text-muted/60 focus:border-accent/40",
             errors.message && "border-red-500/50",

@@ -4,7 +4,7 @@ import { getSupabase } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 const NAME_MAX = 100;
 const EMAIL_MAX = 254;
 const MESSAGE_MIN = 20;
