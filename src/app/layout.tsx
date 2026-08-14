@@ -32,24 +32,26 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   title: {
-    default: "Mohammed Yahya — AI Engineer & Systems Architect",
-    template: "%s · Mohammed Yahya",
+    default: "Mohammed Yahya Qureshi | AI/ML Engineer",
+    template: "%s | Mohammed Yahya Qureshi",
   },
   description:
-    "AI Engineer & Systems Architect. Architecting agentic intelligence and scalable ML pipelines — multi-agent systems, RAG & knowledge graphs, and predictive models.",
+    "AI/ML Engineer building agentic AI, RAG systems, and predictive ML models — Machine Learning, Generative AI, Agentic AI, and Cybersecurity.",
   keywords: [
-    "AI Engineer",
+    "AI/ML Engineer",
     "Machine Learning",
-    "Multi-Agent Systems",
+    "Generative AI",
+    "Agentic AI",
     "RAG",
-    "Knowledge Graphs",
+    "Multi-Agent Systems",
+    "Cybersecurity",
     "Mumbai",
   ],
   authors: [{ name: site.name }],
   openGraph: {
-    title: "Mohammed Yahya — AI Engineer & Systems Architect",
+    title: "Mohammed Yahya Qureshi | AI/ML Engineer",
     description:
-      "Architecting agentic intelligence and scalable ML pipelines for real-world impact.",
+      "AI/ML Engineer specializing in Machine Learning, Generative AI, Agentic AI, and RAG.",
     url: site.domain,
     siteName: site.brand,
     locale: "en_US",
@@ -57,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohammed Yahya — AI Engineer & Systems Architect",
+    title: "Mohammed Yahya Qureshi | AI/ML Engineer",
     description:
-      "Architecting agentic intelligence and scalable ML pipelines for real-world impact.",
+      "AI/ML Engineer specializing in Machine Learning, Generative AI, Agentic AI, and RAG.",
   },
   robots: {
     index: true,

@@ -70,14 +70,39 @@ export function Footer() {
           ))}
         </nav>
 
-        <p className="text-xs leading-relaxed text-muted">
-          {site.status}
-          <br />
-          &copy; {new Date().getFullYear()} Mohammed Yahya Mohammed Qayyum
-          Qureshi
-          <br />
-          Built as a Next.js engineering product.
-        </p>
+        <div className="flex flex-col items-start gap-3">
+          <p className="text-xs leading-relaxed text-muted">
+            {site.status}
+            <br />
+            &copy; {new Date().getFullYear()} Mohammed Yahya Mohammed Qayyum
+            Qureshi
+            <br />
+            Built as a Next.js engineering product.
+          </p>
+          <a
+            href="https://internship.flyrank.ai/verify"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="FlyRank verified intern — open the FlyRank credential verification page"
+            className="group inline-flex items-center gap-2.5 rounded-md border border-line bg-card/60 px-3 py-2 transition-colors duration-300 hover:border-line-strong"
+          >
+            <img
+              src="/flyrank-wordmark-onLight.svg"
+              alt=""
+              aria-hidden="true"
+              className="block h-5 w-auto dark:hidden"
+            />
+            <img
+              src="/flyrank-wordmark-onDark.svg"
+              alt=""
+              aria-hidden="true"
+              className="hidden h-5 w-auto dark:block"
+            />
+            <span className="text-xs font-medium text-muted transition-colors duration-300 group-hover:text-foreground">
+              Verified Intern
+            </span>
+          </a>
+        </div>
       </div>
     </footer>
   );

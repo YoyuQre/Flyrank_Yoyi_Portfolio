@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Mohammed Yahya — AI Engineer & Systems Architect";
+export const alt =
+  "Mohammed Yahya Qureshi — AI/ML Engineer — Machine Learning, Generative AI, Agentic AI, RAG";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -51,22 +52,25 @@ export default function OpengraphImage() {
             Architecting agentic intelligence and scalable ML pipelines.
           </div>
           <div style={{ fontSize: 28, color: "#94a3b8", maxWidth: 820 }}>
-            Mohammed Yahya · AI Engineer & Systems Architect
+            Mohammed Yahya Qureshi · AI/ML Engineer
           </div>
         </div>
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
             gap: "16px",
             fontSize: 20,
             color: "#3b82f6",
           }}
         >
-          <span>Multi-Agent Orchestration</span>
+          <span>Machine Learning</span>
           <span>·</span>
-          <span>RAG & Knowledge Graphs</span>
+          <span>Generative AI</span>
           <span>·</span>
-          <span>Predictive ML</span>
+          <span>Agentic AI</span>
+          <span>·</span>
+          <span>RAG</span>
         </div>
       </div>
     ),
