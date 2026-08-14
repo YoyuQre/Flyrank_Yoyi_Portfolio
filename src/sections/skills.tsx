@@ -48,7 +48,7 @@ export function Skills() {
                           : "border-line bg-card/60 text-muted hover:border-line-strong hover:text-foreground",
                         skill.relatedProjects.length === 0 &&
                           !isActive &&
-                          "cursor-default opacity-50",
+                          "cursor-default border-dashed",
                       )}
                     >
                       {skill.label}

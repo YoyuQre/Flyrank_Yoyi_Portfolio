@@ -12,7 +12,7 @@ function BrandMark() {
     <a
       href="#overview"
       className="flex items-center gap-2.5"
-      aria-label="Yahya AI — back to overview"
+      aria-label={`${site.brand} — back to overview`}
     >
       <span className="flex items-center gap-2">
         <span className="glow-dot size-2 rounded-full bg-status" />

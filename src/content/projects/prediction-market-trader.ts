@@ -354,7 +354,7 @@ async def advise_endpoint(payload: AdviseRequest):
       blocks: [
         {
           type: "paragraph",
-          text: "A hosted endpoint exercises live queries against the deployed gateway with cached store state.",
+          text: "No public endpoint is currently hosted. A self-contained CLI (`python run_demo.py`) exercises the full pipeline against cached store state — the same run used in the demo video.",
         },
       ],
     },
@@ -380,8 +380,7 @@ async def advise_endpoint(payload: AdviseRequest):
     },
   ],
   links: {
-    github: "https://github.com/mohammedyahya/prediction-market-trader",
-    demo: "https://github.com/mohammedyahya/prediction-market-trader",
-    docs: "https://github.com/mohammedyahya/prediction-market-trader",
+    github: "https://github.com/YoyuQre/prediction-market-trader-advisor",
+    docs: "https://github.com/YoyuQre/prediction-market-trader-advisor",
   },
 };

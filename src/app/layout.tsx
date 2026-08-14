@@ -28,6 +28,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Mohammed Yahya — AI Engineer & Systems Architect",
     template: "%s · Mohammed Yahya",

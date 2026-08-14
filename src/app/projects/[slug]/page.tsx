@@ -16,6 +16,7 @@ import {
 import type { CaseStudyBlock } from "@/content/projects/types";
 import { Badge } from "@/components/ui/badge";
 import { PipelineDiagram } from "@/features/pipeline-diagram";
+import { site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -32,6 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: project.title,
     description: project.tagline,
+    alternates: {
+      canonical: `${site.domain}/projects/${project.slug}`,
+    },
   };
 }
 

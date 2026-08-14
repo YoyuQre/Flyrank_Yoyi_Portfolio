@@ -1,6 +1,11 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  # Turbopack persists an env snapshot (including RESEND_API_KEY) into
+  # .next/cache/turbopack during the build. That cache is never served to
+  # visitors, but Netlify's secrets scanner flags it and fails the deploy.
+  # Exclude the cache directory from scanning so the build can complete.
+  environment = { SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

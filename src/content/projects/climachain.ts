@@ -8,14 +8,14 @@ export const climachain: Project = {
   tagline:
     "A full-stack ML engine that turns raw weather metrics into reliable, localized playability forecasts.",
   summary:
-    "An end-to-end system combining a Random Forest model (~85% accuracy in WEKA) with Scikit-Learn preprocessing for class imbalance, served through FastAPI to a React/Node.js dashboard backed by Supabase and PostgreSQL, deployed on Vercel.",
+    "An end-to-end system combining a Random Forest model (~85% accuracy in WEKA) with Scikit-Learn preprocessing for class imbalance, served through FastAPI to a React/Node.js dashboard backed by Supabase and PostgreSQL.",
   status: "Complete",
   accent: "cyan",
   highlights: [
     { label: "Model accuracy", value: "~85%" },
     { label: "Imbalance", value: "SMOTE pipeline" },
     { label: "Frontend", value: "React.js + Node.js" },
-    { label: "Hosting", value: "Vercel" },
+    { label: "Hosting", value: "CI/CD pipeline" },
   ],
   stack: [
     "WEKA",
@@ -105,7 +105,7 @@ export const climachain: Project = {
             { label: "Accuracy", value: "~85%" },
             { label: "Imbalance handling", value: "SMOTE" },
             { label: "API", value: "FastAPI" },
-            { label: "Deployment", value: "Vercel" },
+            { label: "Deployment", value: "CI/CD ready" },
           ],
         },
       ],
@@ -231,7 +231,7 @@ def build_features(df):
       blocks: [
         {
           type: "paragraph",
-          text: "The FastAPI service is deployed serverless, the React dashboard and Node.js API ship on Vercel, and Supabase/PostgreSQL persists forecast history. Environment variables keep model artifact paths and database credentials out of the repo.",
+          text: "The FastAPI service, React dashboard, and Node.js API are wired for serverless deployment through the included GitHub Actions pipeline; Supabase/PostgreSQL persists forecast history. Environment variables keep model artifact paths and database credentials out of the repo.",
         },
         {
           type: "code",
@@ -323,7 +323,7 @@ async def predict(payload: WeatherPayload):
       blocks: [
         {
           type: "paragraph",
-          text: "The live dashboard is deployed on Vercel and accepts a station + timestamp to return a playability score.",
+          text: "No public deployment is currently live. The FastAPI service runs locally with the React dashboard (default API base is http://localhost:8001), and the included GitHub Actions pipeline is configured for Render deployment.",
         },
       ],
     },
@@ -349,8 +349,7 @@ async def predict(payload: WeatherPayload):
     },
   ],
   links: {
-    github: "https://github.com/mohammedyahya/climachain",
-    demo: "https://github.com/mohammedyahya/climachain",
-    docs: "https://github.com/mohammedyahya/climachain",
+    github: "https://github.com/YoyuQre/ClimaChain",
+    docs: "https://github.com/YoyuQre/ClimaChain",
   },
 };

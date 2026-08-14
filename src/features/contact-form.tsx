@@ -30,30 +30,57 @@ export function ContactForm() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [website, setWebsite] = React.useState("");
   const [errors, setErrors] = React.useState<FieldErrors>({});
   const [status, setStatus] = React.useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [formError, setFormError] = React.useState("");
+  const submittingRef = React.useRef(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    if (submittingRef.current) return;
+
     const next = validate(name, email, message);
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
+    submittingRef.current = true;
     setStatus("submitting");
+    setFormError("");
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website }),
       });
+      const data = (await response.json().catch(() => null)) as {
+        ok?: boolean;
+        error?: string;
+      } | null;
+
+      if (!response.ok || !data?.ok) {
+        setStatus("error");
+        setFormError(
+          data?.error ??
+            "Something went wrong while sending your message. Please try again.",
+        );
+        return;
+      }
+
       setStatus("success");
       setName("");
       setEmail("");
       setMessage("");
+      setWebsite("");
     } catch {
       setStatus("error");
+      setFormError(
+        "Something went wrong while sending your message. Please try again.",
+      );
+    } finally {
+      submittingRef.current = false;
     }
   };
 
@@ -66,6 +93,21 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <div
+        className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
+        aria-hidden="true"
+      >
+        <label htmlFor="contact-website">Leave this field empty</label>
+        <input
+          id="contact-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label
@@ -134,12 +176,13 @@ export function ContactForm() {
       </div>
 
       {status === "success" ? (
-        <p className="rounded-md border border-status/25 bg-status/8 px-4 py-3 text-sm text-status">
-          Message transmitted. I&apos;ll reply within 24 hours.
+        <p className="rounded-md border border-status/25 bg-status/8 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-400">
+          Thanks! Your message has been sent successfully. I&apos;ll reply
+          within 24 hours.
         </p>
       ) : status === "error" ? (
         <p className="rounded-md border border-red-500/25 bg-red-500/8 px-4 py-3 text-sm text-red-500">
-          Transmission failed. Email me directly at the address on the left.
+          {formError || "Something went wrong while sending your message. Please try again."}
         </p>
       ) : null}
 

@@ -8,7 +8,7 @@ export const site = {
   email: "yahyaqureshi677@gmail.com",
   phone: "+91 9326780873",
   resumeUrl: "/resume.pdf",
-  domain: "https://yahya.ai",
+  domain: "https://myahyaq.netlify.app",
   socials: {
     github: "https://github.com/YoyuQre",
     linkedin:

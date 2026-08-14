@@ -12,7 +12,8 @@ export function Badge({ className, tone = "default", ...props }: BadgeProps) {
         "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium",
         tone === "default" && "border-line bg-card text-muted",
         tone === "accent" && "border-accent/20 bg-accent/8 text-accent",
-        tone === "success" && "border-status/20 bg-status/8 text-status",
+        tone === "success" &&
+          "border-status/20 bg-status/8 text-emerald-700 dark:text-emerald-400",
         tone === "neutral" &&
           "border-line bg-surface/60 text-muted font-mono text-[11px] tracking-tight",
         className,

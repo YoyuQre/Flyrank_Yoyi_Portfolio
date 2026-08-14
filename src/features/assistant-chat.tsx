@@ -239,7 +239,7 @@ export function AssistantChat({
             )}
           </button>
         </form>
-        <p className="mt-2 flex items-center gap-1 text-[10px] text-muted/70">
+        <p className="mt-2 flex items-center gap-1 text-[10px] text-muted">
           <CornerDownLeft className="size-3" />
           Retrieval-only · answers link straight to page sections
         </p>
