@@ -1,16 +1,17 @@
-"use client";
+﻿"use client";
 
 import Script from "next/script";
 import * as React from "react";
 import { trackVisit } from "@/lib/tracking";
 
-const CLARITY_ID = (process.env.NEXT_PUBLIC_CLARITY_ID ?? "").trim();
+const CLARITY_ID = (process.env.NEXT_PUBLIC_CLARITY_ID ?? "xz28qpcmbe").trim();
 
 /**
  * Microsoft Clarity integration.
  *
  * - Loads the official Clarity tag via next/script (afterInteractive).
- * - Disabled entirely when no NEXT_PUBLIC_CLARITY_ID is configured.
+ * - Reads NEXT_PUBLIC_CLARITY_ID when set; otherwise falls back to the
+ *   compiled-in default so analytics works on the host platform too.
  * - Skips tracking on localhost / 127.0.0.1 so dev visits stay out of the
  *   analytics data (see src/lib/tracking.ts).
  *
