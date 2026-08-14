@@ -3,7 +3,7 @@
 import * as React from "react";
 import { isLocalhost, trackVisit } from "@/lib/tracking";
 
-const CLARITY_ID = (process.env.NEXT_PUBLIC_CLARITY_ID ?? "xz28qpcmbe").trim();
+const CLARITY_ID = (process.env.NEXT_PUBLIC_CLARITY_ID ?? "y28ow2gm47").trim();
 
 /**
  * Microsoft Clarity integration.
