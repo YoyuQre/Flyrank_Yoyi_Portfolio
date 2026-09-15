@@ -101,7 +101,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-line pt-5">
             <a
-              href={`/projects/${project.slug}`}
+              href={project.caseStudyUrl ?? `/projects/${project.slug}`}
+              target={
+                project.caseStudyUrl ? "_blank" : undefined
+              }
+              rel={
+                project.caseStudyUrl ? "noreferrer noopener" : undefined
+              }
               className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-accent"
             >
               <BookOpen className="size-4" />
@@ -158,7 +164,7 @@ export function Projects() {
       <SectionHeading
         eyebrow="Intelligence Engine"
         title="Case studies, not portfolios."
-        description="Two production systems built end-to-end. Each opens into a full engineering write-up — problem, research, architecture, pipeline, model, evaluation, deployment, and lessons learned."
+        description="Three production systems built end-to-end. Each opens into a full engineering write-up — problem, research, architecture, pipeline, model, evaluation, deployment, and lessons learned."
       />
 
       {activeSkill ? (

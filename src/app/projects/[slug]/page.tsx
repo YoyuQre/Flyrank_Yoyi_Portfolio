@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -103,6 +104,7 @@ export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+  if (project.caseStudyUrl) redirect(project.caseStudyUrl);
 
   const index = projects.findIndex((p) => p.slug === slug);
   const next = projects[(index + 1) % projects.length];

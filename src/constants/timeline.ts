@@ -8,14 +8,14 @@ export type TimelineEntry = {
 
 export const timelineEntries: TimelineEntry[] = [
   {
-    period: "Jul 2026 – Present",
+    period: "Jul – Sep 2026",
     role: "Machine Learning Intern",
     org: "FlyRank AI",
-    type: "Internship",
+    type: "Internship · Complete",
     points: [
-      "Machine Learning track — July 2026 cohort",
-      "Anthropic courses: prompting, ML systems & backend foundations",
-      "Building proof: foundation submissions + accepted capstone",
+      "Built and validated a random-forest classifier on 30K real production pages, 32 clients — F1 0.82 vs. 0.63 baseline",
+      "Ran client-grouped validation and leakage audits; disclosed and corrected an inflated accuracy result",
+      "Delivered a reason-coded, tiered priority queue for editorial review workflows",
     ],
   },
   {

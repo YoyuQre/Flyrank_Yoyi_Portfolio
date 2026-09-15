@@ -34,6 +34,7 @@ export type Project = {
   summary: string;
   status: string;
   accent: "blue" | "violet" | "cyan";
+  caseStudyUrl?: string;
   highlights: { label: string; value: string }[];
   stack: string[];
   skills: string[];

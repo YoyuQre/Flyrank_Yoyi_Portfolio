@@ -62,32 +62,40 @@ export function About() {
                   <Radar className="size-5" />
                 </span>
                 <h3 className="font-display text-base font-semibold">
-                  Current Internship
+                  Machine Learning Internship
                 </h3>
               </div>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <Badge tone="success">Complete</Badge>
+                <Badge tone="neutral">Jul – Sep 2026</Badge>
+              </div>
               <p className="mt-5 text-sm leading-relaxed text-muted">
-                Machine Learning Intern at{" "}
                 <span className="font-medium text-foreground">
                   FlyRank AI
                 </span>
-                . July 2026 cohort — a self-paced program that builds toward
-                proof: foundation submissions and an accepted capstone.
+                . Shipped a validated capstone: a random-forest classifier
+                prioritizing 30K real production content pages across 32
+                clients for editorial review, beating a rule-based baseline on
+                every metric (F1 0.82 vs. 0.63) with client-grouped validation
+                and disclosed leakage audits.
               </p>
             </div>
             <ul className="mt-8 flex flex-col gap-2 text-sm text-muted">
               <li className="flex items-start gap-2">
                 <ArrowRight className="mt-0.5 size-3.5 shrink-0 text-accent-2" />
-                Machine Learning track · July 2026 cohort, accepted from the
-                waitlist
+                Built and validated a random-forest classifier on 30K real
+                production pages, 32 clients
               </li>
               <li className="flex items-start gap-2">
                 <ArrowRight className="mt-0.5 size-3.5 shrink-0 text-accent-2" />
-                Anthropic courses: prompting, ML systems &amp; backend
-                foundations
+                Designed a client-grouped train/test split; caught and
+                disclosed a leakage-inflated 0.9997 result during a sanity
+                check
               </li>
               <li className="flex items-start gap-2">
                 <ArrowRight className="mt-0.5 size-3.5 shrink-0 text-accent-2" />
-                Foundation submissions + accepted capstone as program proof
+                Delivered a reason-coded, tiered priority queue (7 rule types,
+                P1–P4) as an editor workflow tool
               </li>
             </ul>
           </Card>

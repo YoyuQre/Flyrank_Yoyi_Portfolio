@@ -43,6 +43,18 @@ export const researchNotes: ResearchNote[] = [
       "Deterministic priority tables for routing remove the expensive branch of the decision.",
     ],
   },
+  {
+    title: "Why a Random Split Lied to Me by 6 Points",
+    domain: "MLOps · Validation",
+    date: "Sep 2026",
+    summary:
+      "Field notes from the FlyRank ML capstone: why a naive 80/20 split reported 0.87 accuracy while a client-grouped split reported the honest 0.81 — and how to prove a leakage check actually works.",
+    points: [
+      "A naive 80/20 split measured 0.87 accuracy; a client-grouped split gave the honest number: 0.81",
+      "Grouped validation exists because production data has entities (clients, users, sessions) that leak information across a random split",
+      "Sanity-checking the leakage harness itself (re-adding a label-derived column and confirming accuracy jumps to near-1.0) is what actually proves the check works",
+    ],
+  },
 ];
 
 export type LabSlot = {

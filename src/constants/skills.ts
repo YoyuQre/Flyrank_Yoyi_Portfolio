@@ -47,7 +47,7 @@ export const skills: Skill[] = [
     id: "predictive-modeling",
     label: "Predictive Modeling",
     category: "Core AI/ML",
-    relatedProjects: ["climachain"],
+    relatedProjects: ["climachain", "content-decline-prediction"],
   },
   {
     id: "weka",
@@ -59,19 +59,27 @@ export const skills: Skill[] = [
     id: "scikit-learn",
     label: "Scikit-Learn",
     category: "Core AI/ML",
-    relatedProjects: ["climachain", "prediction-market-trader"],
+    relatedProjects: [
+      "climachain",
+      "prediction-market-trader",
+      "content-decline-prediction",
+    ],
   },
   {
     id: "data-mining",
     label: "Data Mining",
     category: "Core AI/ML",
-    relatedProjects: ["climachain"],
+    relatedProjects: ["climachain", "content-decline-prediction"],
   },
   {
     id: "python",
     label: "Python",
     category: "Languages",
-    relatedProjects: ["prediction-market-trader", "climachain"],
+    relatedProjects: [
+      "prediction-market-trader",
+      "climachain",
+      "content-decline-prediction",
+    ],
   },
   {
     id: "sql",
